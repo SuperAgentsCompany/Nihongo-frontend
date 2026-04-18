@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono&display=swap');
+
+:root {
+    --quantum-blue: #0A2540;
+    --electric-cyan: #00E5FF;
+    --deep-slate: #0F172A;
+    --slate-800: #1E293B;
+    --border: rgba(255, 255, 255, 0.1);
+    --success: #10B981;
+    --warning: #F59E0B;
+    --error: #EF4444;
+    --text-main: #F1F5F9;
+    --text-muted: #94A3B8;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--deep-slate);
+    color: var(--text-main);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}

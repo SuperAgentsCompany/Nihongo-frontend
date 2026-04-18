@@ -1,0 +1,75 @@
+.sidebar {
+  width: 240px;
+  background-color: var(--quantum-blue);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--electric-cyan);
+  margin-bottom: 48px;
+  letter-spacing: -0.05em;
+}
+
+.nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav li {
+  margin-bottom: 12px;
+}
+
+.navLink {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.navLink:hover {
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.active {
+  color: var(--electric-cyan) !important;
+  background: rgba(0, 229, 255, 0.1) !important;
+}
+
+.footer {
+  margin-top: auto;
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+}
+
+.logoutBtn {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.logoutBtn:hover {
+  color: var(--error);
+  background: rgba(239, 68, 68, 0.1);
+}

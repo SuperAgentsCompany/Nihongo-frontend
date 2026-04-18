@@ -1,0 +1,240 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 0 2rem 4rem 2rem;
+  background: radial-gradient(circle at top, var(--quantum-blue) 0%, var(--deep-slate) 100%);
+  color: var(--text-main);
+  text-align: center;
+}
+
+.nav {
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+}
+
+.navLogo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--electric-cyan);
+  letter-spacing: 0.1em;
+}
+
+.loginLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+
+.loginLink:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--electric-cyan);
+  color: var(--electric-cyan);
+}
+
+.hero {
+  max-width: 800px;
+  margin-bottom: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.badge {
+  background: rgba(0, 229, 255, 0.1);
+  color: var(--electric-cyan);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(0, 229, 255, 0.2);
+}
+
+.headline {
+  font-size: 4.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(to bottom right, #fff 30%, var(--electric-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.subheadline {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 3rem;
+  max-width: 650px;
+}
+
+.waitlistForm {
+  display: flex;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 550px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.waitlistForm:focus-within {
+  border-color: rgba(0, 229, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.1);
+}
+
+.input {
+  flex: 1;
+  padding: 0.875rem 1.25rem;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  border-radius: 8px;
+  border: none;
+  background: var(--electric-cyan);
+  color: var(--quantum-blue);
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+}
+
+.button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(0, 229, 255, 0.4);
+}
+
+.button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.successMessage {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid var(--success);
+  border-radius: 12px;
+  color: var(--success);
+  font-weight: 600;
+}
+
+.successIcon {
+  color: var(--success);
+}
+
+.resetButton {
+  background: none;
+  border: none;
+  color: var(--success);
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.875rem;
+  margin-left: 1rem;
+}
+
+.errorMessage {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  color: var(--error);
+  font-size: 0.875rem;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.featureCard {
+  padding: 2.5rem;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.02);
+  text-align: left;
+  transition: background 0.3s, transform 0.3s, border-color 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.featureCard:hover {
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateY(-5px);
+  border-color: rgba(0, 229, 255, 0.2);
+}
+
+.featureIcon {
+  color: var(--electric-cyan);
+  margin-bottom: 1.5rem;
+}
+
+.featureTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.featureText {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .headline {
+    font-size: 3rem;
+  }
+  
+  .waitlistForm {
+    flex-direction: column;
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+  
+  .input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    margin-bottom: 0.5rem;
+  }
+  
+  .button {
+    width: 100%;
+    justify-content: center;
+  }
+}
