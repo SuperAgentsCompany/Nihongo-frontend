@@ -9,31 +9,32 @@
   justify-content: space-between;
   align-items: center;
   padding-bottom: 24px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--border-subtle);
   margin-bottom: 0;
 }
 
 .breadcrumb {
   font-size: 14px;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   margin-bottom: 4px;
 }
 
 .title {
   font-size: 24px;
   font-weight: 600;
+  color: var(--text-primary);
 }
 
 .statusBadge {
-  background-color: var(--slate-800);
-  border: 1px solid var(--border);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
   padding: 4px 12px;
   border-radius: 9999px;
   font-size: 12px;
   font-weight: 600;
   display: inline-block;
   margin-top: 8px;
-  color: var(--electric-cyan);
+  color: var(--accent);
 }
 
 .actions {
@@ -42,8 +43,8 @@
 }
 
 .primaryBtn {
-  background-color: var(--electric-cyan);
-  color: var(--quantum-blue);
+  background-color: var(--accent);
+  color: var(--bg-sidebar);
   border: none;
   padding: 8px 16px;
   border-radius: 6px;
@@ -56,8 +57,8 @@
 
 .secondaryBtn {
   background-color: transparent;
-  border: 1px solid var(--border);
-  color: white;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
   padding: 8px 16px;
   border-radius: 6px;
   font-weight: 600;
@@ -75,20 +76,20 @@
 
 .graphArea {
   flex: 2;
-  background-image: radial-gradient(var(--border) 1px, transparent 1px);
+  background-image: radial-gradient(var(--border-subtle) 1px, transparent 1px);
   background-size: 30px 30px;
   position: relative;
   overflow: hidden;
 }
 
 .node {
-  background: var(--slate-800);
-  border: 1px solid var(--border);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
   border-radius: 10px;
   padding: 16px;
   width: 180px;
   position: absolute;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-card);
   z-index: 2;
 }
 
@@ -102,6 +103,7 @@
 .nodeName {
   font-weight: 600;
   font-size: 14px;
+  color: var(--text-primary);
 }
 
 .statusDot {
@@ -110,14 +112,14 @@
   border-radius: 50%;
 }
 
-.success { background-color: var(--success); }
+.success { background-color: var(--success-color); }
 .active { 
-  background-color: var(--electric-cyan); 
-  box-shadow: 0 0 8px var(--electric-cyan);
+  background-color: var(--accent); 
+  box-shadow: 0 0 8px var(--accent);
   animation: pulse 2s infinite;
 }
-.warning { background-color: var(--warning); }
-.idle { background-color: #475569; }
+.warning { background-color: var(--warning-color); }
+.idle { background-color: var(--text-secondary); }
 
 @keyframes pulse {
   0% { transform: scale(1); opacity: 1; }
@@ -127,14 +129,14 @@
 
 .nodeText {
   font-size: 12px;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   line-height: 1.4;
 }
 
 .connector {
   position: absolute;
   height: 2px;
-  background: var(--electric-cyan);
+  background: var(--accent);
   opacity: 0.2;
   z-index: 1;
   transform-origin: left center;
@@ -148,26 +150,27 @@
 
 .logsPanel {
   flex: 1;
-  background: rgba(0, 0, 0, 0.2);
-  border-left: 1px solid var(--border);
+  background: var(--bg-code);
+  border-left: 1px solid var(--border-subtle);
   display: flex;
   flex-direction: column;
 }
 
 .panelHeader {
   padding: 16px 24px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--border-subtle);
   font-weight: 600;
   font-size: 14px;
   display: flex;
   justify-content: space-between;
+  color: var(--text-primary);
 }
 
 .liveIndicator {
   display: flex;
   align-items: center;
   gap: 6px;
-  color: var(--electric-cyan);
+  color: var(--accent);
   font-size: 12px;
 }
 
@@ -180,7 +183,7 @@
 }
 
 .emptyLogs {
-  color: var(--text-muted);
+  color: var(--text-secondary);
   text-align: center;
   padding-top: 40px;
   font-style: italic;
@@ -192,20 +195,20 @@
   padding-left: 12px;
 }
 
-.logEntry.info { border-color: var(--electric-cyan); }
-.logEntry.success { border-color: var(--success); }
+.logEntry.info { border-color: var(--accent); }
+.logEntry.success { border-color: var(--success-color); }
 
 .logTime {
-  color: #475569;
+  color: var(--text-secondary);
   margin-right: 8px;
 }
 
 .logAgent {
-  color: var(--electric-cyan);
+  color: var(--accent);
   font-weight: 600;
   margin-right: 8px;
 }
 
 .logMessage {
-  color: var(--text-muted);
+  color: var(--text-secondary);
 }

@@ -5,8 +5,8 @@
   justify-content: flex-start;
   min-height: 100vh;
   padding: 0 2rem 4rem 2rem;
-  background: radial-gradient(circle at top, var(--quantum-blue) 0%, var(--deep-slate) 100%);
-  color: var(--text-main);
+  background: radial-gradient(circle at top, var(--bg-sidebar) 0%, var(--bg-surface) 100%);
+  color: var(--text-primary);
   text-align: center;
 }
 
@@ -23,7 +23,7 @@
 .navLogo {
   font-size: 1.5rem;
   font-weight: 800;
-  color: var(--electric-cyan);
+  color: var(--accent);
   letter-spacing: 0.1em;
 }
 
@@ -33,18 +33,18 @@
   gap: 0.5rem;
   padding: 0.5rem 1.25rem;
   border-radius: 8px;
-  border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.05);
-  color: white;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-active);
+  color: var(--text-primary);
   font-weight: 600;
   font-size: 0.875rem;
   transition: all 0.2s;
 }
 
 .loginLink:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: var(--electric-cyan);
-  color: var(--electric-cyan);
+  background: var(--bg-active);
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .hero {
@@ -56,21 +56,21 @@
 }
 
 .badge {
-  background: rgba(0, 229, 255, 0.1);
-  color: var(--electric-cyan);
+  background: var(--bg-active);
+  color: var(--accent);
   padding: 0.5rem 1rem;
   border-radius: 20px;
   font-size: 0.875rem;
   font-weight: 600;
   margin-bottom: 2rem;
-  border: 1px solid rgba(0, 229, 255, 0.2);
+  border: 1px solid var(--bg-active);
 }
 
 .headline {
   font-size: 4.5rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
-  background: linear-gradient(to bottom right, #fff 30%, var(--electric-cyan));
+  background: linear-gradient(to bottom right, var(--text-primary) 30%, var(--accent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   line-height: 1.05;
@@ -79,7 +79,7 @@
 
 .subheadline {
   font-size: 1.25rem;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 3rem;
   max-width: 650px;
@@ -90,16 +90,16 @@
   gap: 0.75rem;
   width: 100%;
   max-width: 550px;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--bg-code);
   padding: 0.5rem;
   border-radius: 12px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-subtle);
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .waitlistForm:focus-within {
-  border-color: rgba(0, 229, 255, 0.3);
-  box-shadow: 0 0 20px rgba(0, 229, 255, 0.1);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-focus);
 }
 
 .input {
@@ -108,7 +108,7 @@
   border-radius: 8px;
   border: none;
   background: transparent;
-  color: white;
+  color: var(--text-primary);
   font-size: 1rem;
   outline: none;
 }
@@ -120,8 +120,8 @@
   padding: 0.875rem 1.75rem;
   border-radius: 8px;
   border: none;
-  background: var(--electric-cyan);
-  color: var(--quantum-blue);
+  background: var(--accent);
+  color: var(--bg-sidebar);
   font-weight: 700;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
@@ -129,7 +129,7 @@
 
 .button:hover:not(:disabled) {
   transform: translateY(-1px);
-  box-shadow: 0 4px 15px rgba(0, 229, 255, 0.4);
+  box-shadow: var(--shadow-button);
 }
 
 .button:disabled {
@@ -142,21 +142,21 @@
   align-items: center;
   gap: 1rem;
   padding: 1rem 2rem;
-  background: rgba(16, 185, 129, 0.1);
-  border: 1px solid var(--success);
+  background: var(--bg-active);
+  border: 1px solid var(--success-color);
   border-radius: 12px;
-  color: var(--success);
+  color: var(--success-color);
   font-weight: 600;
 }
 
 .successIcon {
-  color: var(--success);
+  color: var(--success-color);
 }
 
 .resetButton {
   background: none;
   border: none;
-  color: var(--success);
+  color: var(--success-color);
   text-decoration: underline;
   cursor: pointer;
   font-size: 0.875rem;
@@ -168,7 +168,7 @@
   align-items: center;
   gap: 0.5rem;
   margin-top: 1rem;
-  color: var(--error);
+  color: var(--error-color);
   font-size: 0.875rem;
 }
 
@@ -183,22 +183,23 @@
 .featureCard {
   padding: 2.5rem;
   border-radius: 16px;
-  border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
   text-align: left;
   transition: background 0.3s, transform 0.3s, border-color 0.3s;
   position: relative;
   overflow: hidden;
+  box-shadow: var(--shadow-card);
 }
 
 .featureCard:hover {
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--bg-active);
   transform: translateY(-5px);
-  border-color: rgba(0, 229, 255, 0.2);
+  border-color: rgba(var(--accent-rgb), 0.2);
 }
 
 .featureIcon {
-  color: var(--electric-cyan);
+  color: var(--accent);
   margin-bottom: 1.5rem;
 }
 
@@ -206,12 +207,12 @@
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  color: white;
+  color: var(--text-primary);
 }
 
 .featureText {
   font-size: 0.95rem;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   line-height: 1.6;
 }
 
@@ -228,8 +229,8 @@
   }
   
   .input {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--border);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
     margin-bottom: 0.5rem;
   }
   

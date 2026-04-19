@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="muji">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUPAA - Dashboard (Muji Theme)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Muji Theme Tokens */
+            --bg-surface: #FDFCF0; /* muji-warm-white */
+            --bg-sidebar: #EAE7E2;
+            --bg-card: #FFFFFF;
+            --accent: #D2B48C; /* muji-oak */
+            --text-primary: #333333; /* muji-charcoal */
+            --text-secondary: #757575; /* muji-gray */
+            --border-subtle: #E0E0E0; /* muji-border */
+            --bg-code: rgba(0, 0, 0, 0.05);
+            --success: #8E9775;
+            --warning: #D4A373;
+            --error: #A5A5A5;
+            --shadow-card: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-surface);
+            color: var(--text-primary);
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Sidebar */
+        aside {
+            width: 240px;
+            background-color: var(--bg-sidebar);
+            border-right: 1px solid var(--border-subtle);
+            display: flex;
+            flex-direction: column;
+            padding: 24px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 48px;
+            letter-spacing: -0.05em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .logo::before {
+            content: "";
+            display: block;
+            width: 12px;
+            height: 12px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav li {
+            margin-bottom: 8px;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            padding: 10px 14px;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--text-primary);
+            background: rgba(0, 0, 0, 0.04);
+        }
+
+        nav a.active {
+            color: var(--text-primary);
+            background: var(--bg-card);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            padding: 48px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 48px;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            letter-spacing: -0.02em;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .stat-value {
+            font-size: 40px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Agent Status List */
+        .agent-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .agent-card {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .agent-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .agent-name {
+            font-weight: 600;
+            font-size: 20px;
+        }
+
+        .status-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #D1D5DB;
+        }
+
+        .dot.active {
+            background-color: var(--accent);
+            box-shadow: 0 0 8px var(--accent);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .agent-task {
+            font-size: 14px;
+            color: var(--text-secondary);
+            background: var(--bg-code);
+            padding: 16px;
+            border-radius: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            line-height: 1.5;
+        }
+
+        /* Output View */
+        .output-card {
+            border-top: 4px solid var(--accent);
+        }
+
+        .output-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-primary);
+        }
+        
+        .output-content strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background-color: var(--text-primary);
+            color: var(--bg-card);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <aside>
+        <div class="logo">SUPAA</div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">Dashboard</a></li>
+                <li><a href="#">Agents</a></li>
+                <li><a href="#">Orchestrations</a></li>
+                <li><a href="#">Knowledge</a></li>
+                <li><a href="#">Settings</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main>
+        <header>
+            <h1>Dashboard</h1>
+            <button class="btn-primary">+ New Orchestration</button>
+        </header>
+
+        <div class="stats-grid">
+            <div class="card">
+                <div class="stat-label">Active Agents</div>
+                <div class="stat-value">12</div>
+            </div>
+            <div class="card">
+                <div class="stat-label">Tasks Completed (24h)</div>
+                <div class="stat-value">1,284</div>
+            </div>
+            <div class="card">
+                <div class="stat-label">System Health</div>
+                <div class="stat-value" style="color: var(--success);">99.9%</div>
+            </div>
+        </div>
+
+        <div class="agent-list">
+            <div class="card agent-card">
+                <div class="agent-header">
+                    <span class="agent-name">Market Analyst</span>
+                    <div class="status-badge">
+                        <div class="dot active"></div>
+                        <span>Thinking</span>
+                    </div>
+                </div>
+                <div class="agent-task">
+                    &gt; Processing competitor pricing data...<br>
+                    &gt; Source: API_V4_MARKET_STREAM
+                </div>
+            </div>
+
+            <div class="card agent-card">
+                <div class="agent-header">
+                    <span class="agent-name">Research Lead</span>
+                    <div class="status-badge">
+                        <div class="dot" style="background-color: var(--success);"></div>
+                        <span>Idle</span>
+                    </div>
+                </div>
+                <div class="agent-task">
+                    &gt; Awaiting next instruction...
+                </div>
+            </div>
+
+            <div class="card output-card" style="grid-column: span 2;">
+                <div class="agent-header" style="margin-bottom: 20px;">
+                    <span class="agent-name">Executive Summary (Generated)</span>
+                    <span style="font-size: 13px; color: var(--text-secondary);">2 minutes ago</span>
+                </div>
+                <div class="output-content">
+                    <p>Based on the multi-agent analysis of current market trends in the AI sector, SUPAA is positioned to capture significant market share by focusing on <strong>low-latency orchestration</strong> and <strong>hybrid cloud deployments</strong>.</p>
+                    <ul>
+                        <li>Competitor A has a 15% lead in total model count.</li>
+                        <li>SUPAA leads in agent-to-agent communication efficiency by 40%.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

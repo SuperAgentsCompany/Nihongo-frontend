@@ -1,6 +1,6 @@
 .sidebar {
   width: 240px;
-  background-color: var(--quantum-blue);
+  background-color: var(--bg-sidebar);
   border-right: 1px solid var(--border);
   display: flex;
   flex-direction: column;
@@ -14,9 +14,21 @@
 .logo {
   font-size: 24px;
   font-weight: 700;
-  color: var(--electric-cyan);
+  color: var(--text-primary);
   margin-bottom: 48px;
   letter-spacing: -0.05em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo::before {
+  content: "";
+  display: block;
+  width: 12px;
+  height: 12px;
+  background-color: var(--accent);
+  border-radius: 2px;
 }
 
 .nav ul {
@@ -26,11 +38,11 @@
 }
 
 .nav li {
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .navLink {
-  color: var(--text-muted);
+  color: var(--text-secondary);
   text-decoration: none;
   font-weight: 500;
   display: flex;
@@ -42,23 +54,28 @@
 }
 
 .navLink:hover {
-  color: var(--text-main);
-  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  background: rgba(0, 0, 0, 0.04);
 }
 
 .active {
-  color: var(--electric-cyan) !important;
-  background: rgba(0, 229, 255, 0.1) !important;
+  color: var(--text-primary) !important;
+  background: var(--bg-card) !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
+
 
 .footer {
   margin-top: auto;
   border-top: 1px solid var(--border);
   padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .logoutBtn {
-  color: var(--text-muted);
+  color: var(--text-secondary);
   text-decoration: none;
   font-weight: 500;
   display: flex;
@@ -67,9 +84,13 @@
   padding: 10px 14px;
   border-radius: 8px;
   transition: all 0.2s ease;
+  background: transparent;
+  border: none;
+  width: 100%;
+  cursor: pointer;
 }
 
 .logoutBtn:hover {
-  color: var(--error);
-  background: rgba(239, 68, 68, 0.1);
+  color: var(--error-color);
+  background: var(--hover-bg);
 }

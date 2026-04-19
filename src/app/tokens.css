@@ -1,0 +1,55 @@
+:root {
+    /* Nova (Dark) Theme Tokens - Default */
+    --bg-surface: #0F172A;
+    --bg-sidebar: #0A2540;
+    --bg-card: #1E293B;
+    --accent: #00E5FF;
+    --accent-rgb: 0, 229, 255;
+    --text-primary: #F1F5F9;
+    --text-secondary: #94A3B8;
+    --border-subtle: rgba(255, 255, 255, 0.1);
+    --bg-code: rgba(0, 0, 0, 0.2);
+    --bg-active: rgba(0, 229, 255, 0.1);
+    --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-button: 0 4px 15px rgba(0, 229, 255, 0.4);
+    --shadow-focus: 0 0 0 2px rgba(0, 229, 255, 0.1);
+    --bg-error: rgba(239, 68, 68, 0.1);
+    --border-error: rgba(239, 68, 68, 0.2);
+    --success-color: #10B981;
+    --warning-color: #F59E0B;
+    --error-color: #EF4444;
+
+    /* Muji Primitive Palette */
+    --muji-white: #FFFFFF;
+    --muji-warm-white: #FAFAFA; /* Updated to match spec #FAFAFA */
+    --muji-light-gray: #EAE7E2;
+    --muji-charcoal: #212121; /* Updated to match spec #212121 */
+    --muji-gray: #757575;
+    --muji-border: #E0E0E0;
+    --muji-oak: #D2B48C;
+    --muji-soft-oak: #E6D5C3;
+    --muji-sage: #73A987; /* Added Sage Green per spec */
+    --radius-default: 8px;
+}
+
+[data-theme='muji'] {
+    /* Muji (Light) Theme Semantic Tokens */
+    --bg-surface: var(--muji-warm-white);
+    --bg-sidebar: var(--muji-light-gray);
+    --bg-card: var(--muji-white);
+    --accent: var(--muji-sage); /* Use Sage instead of Oak */
+    --accent-rgb: 115, 169, 135; /* matches #73A987 */
+    --text-primary: var(--muji-charcoal);
+    --text-secondary: var(--muji-gray);
+    --border-subtle: var(--muji-border);
+    --bg-code: rgba(0, 0, 0, 0.05);
+    --bg-active: rgba(115, 169, 135, 0.15);
+    --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.05); /* Match spec shadow-elevation-1 */
+    --shadow-button: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-focus: 0 0 0 2px rgba(115, 169, 135, 0.2);
+    --bg-error: rgba(165, 165, 165, 0.1);
+    --border-error: rgba(165, 165, 165, 0.2);
+    --success-color: #73A987; /* Use Sage for success too */
+    --warning-color: #D4A373;
+    --error-color: #A5A5A5;
+}

@@ -2,13 +2,15 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, Users, Workflow, Database, Settings, LogOut } from "lucide-react";
+import { LayoutDashboard, Users, Workflow, Database, Settings, LogOut, Image } from "lucide-react";
+import ThemeToggle from "../ThemeToggle/ThemeToggle";
 import styles from "./Sidebar.module.css";
 
 const navItems = [
   { name: "Dashboard", href: "/", icon: LayoutDashboard },
   { name: "Agents", href: "/agents", icon: Users },
   { name: "Orchestrations", href: "/orchestrations", icon: Workflow },
+  { name: "Media Lab", href: "/media-lab", icon: Image },
   { name: "Knowledge", href: "/knowledge", icon: Database },
   { name: "Settings", href: "/settings", icon: Settings },
 ];
@@ -39,6 +41,7 @@ export default function Sidebar() {
         </ul>
       </nav>
       <div className={styles.footer}>
+        <ThemeToggle />
         <button 
           onClick={() => {
             localStorage.removeItem("token");

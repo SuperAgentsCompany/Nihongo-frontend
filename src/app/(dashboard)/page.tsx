@@ -60,17 +60,27 @@ export default function DashboardPage() {
           </div>
         ))}
 
-        <div className={`${styles.card} ${styles.outputCard}`}>
-          <div className={styles.agentHeader}>
-            <span className={styles.agentName}>Executive Summary (Generated)</span>
-            <span className={styles.timestamp}>2 minutes ago</span>
+        <div className={styles.summaryContainer}>
+          <div className={styles.summaryHeader}>
+            <div className={styles.summaryTitle}>
+              <span className={styles.agentName}>Executive Summary</span>
+              <span className={styles.timestamp}>Generated 2 minutes ago</span>
+            </div>
           </div>
-          <div className={styles.outputContent}>
-            <p>Based on the multi-agent analysis of current market trends in the AI sector, SUPAA is positioned to capture significant market share by focusing on <strong>low-latency orchestration</strong> and <strong>hybrid cloud deployments</strong>.</p>
-            <ul>
-              <li>Competitor A has a 15% lead in total model count.</li>
-              <li>SUPAA leads in agent-to-agent communication efficiency by 40%.</li>
-            </ul>
+          
+          <div className={styles.atomicGrid}>
+            <div className={`${styles.card} ${styles.atomicCard}`}>
+              <h3>Market Position</h3>
+              <p>SUPAA is positioned to capture significant market share by focusing on <strong>low-latency orchestration</strong> and <strong>hybrid cloud deployments</strong>.</p>
+            </div>
+            <div className={`${styles.card} ${styles.atomicCard}`}>
+              <h3>Model Insights</h3>
+              <p>Competitor A has a 15% lead in total model count. However, SUPAA leads in agent-to-agent communication efficiency by 40%.</p>
+            </div>
+            <div className={`${styles.card} ${styles.atomicCard}`}>
+              <h3>Strategic Focus</h3>
+              <p>Prioritize <strong>cross-agent memory consistency</strong> and <strong>real-time feedback loops</strong> for the next release cycle.</p>
+            </div>
           </div>
         </div>
       </div>

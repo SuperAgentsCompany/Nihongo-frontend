@@ -1,0 +1,45 @@
+:root {
+    /* Nova (Dark) Theme Tokens - Default */
+    --bg-surface: #0F172A;
+    --bg-sidebar: #0A2540;
+    --bg-card: #1E293B;
+    --accent: #00E5FF;
+    --accent-rgb: 0, 229, 255;
+    --text-primary: #F1F5F9;
+    --text-secondary: #94A3B8;
+    --border-subtle: rgba(255, 255, 255, 0.1);
+    --bg-code: rgba(0, 0, 0, 0.2);
+    --bg-active: rgba(0, 229, 255, 0.1);
+    --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --success-color: #10B981;
+    --warning-color: #F59E0B;
+    --error-color: #EF4444;
+
+    /* Muji Primitive Palette */
+    --muji-white: #FFFFFF;
+    --muji-warm-white: #FDFCF0;
+    --muji-light-gray: #F7F7F7;
+    --muji-charcoal: #333333;
+    --muji-gray: #757575;
+    --muji-border: #E0E0E0;
+    --muji-oak: #D2B48C;
+    --muji-soft-oak: #E6BA95;
+}
+
+[data-theme='muji'] {
+    /* Muji (Light) Theme Semantic Tokens */
+    --bg-surface: var(--muji-warm-white);
+    --bg-sidebar: #EAE7E2;
+    --bg-card: var(--muji-white);
+    --accent: var(--muji-oak);
+    --accent-rgb: 210, 180, 140; /* matches #D2B48C */
+    --text-primary: var(--muji-charcoal);
+    --text-secondary: var(--muji-gray);
+    --border-subtle: var(--muji-border);
+    --bg-code: rgba(0, 0, 0, 0.05);
+    --bg-active: rgba(210, 180, 140, 0.15);
+    --shadow-card: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+    --success-color: #8E9775;
+    --warning-color: #D4A373;
+    --error-color: #A5A5A5;
+}

@@ -30,7 +30,7 @@ app.post('/api/chat', async (req, res) => {
         messages: [
           { 
             role: "system", 
-            content: "You are an expert English-Japanese language teacher. For every response, first think about the pedagogical approach, grammar rules, and cultural context. Wrap your internal monologue in <thought> tags, then provide your final response to the student."
+            content: "You are an expert English-Japanese language teacher. For every response, first think about the pedagogical approach, grammar rules, and cultural context. Wrap your internal monologue in <thought> tags, then provide your final response to the student.\n\nGuidelines:\n1. Use polite Japanese (Teineigo) and a supportive, serene English tone.\n2. If the student asks in English, always provide a clear English explanation along with the Japanese translation/response.\n3. Keep responses concise (strictly 2-3 sentences).\n4. Bold all Japanese particles (e.g., **は**, **が**, **を**, **に**, **へ**, **と**, **から**, **より**, **で**, **まで**).\n5. Always end follow-up questions with a question mark (？), never a period (。)."
           },
           { role: "user", content: prompt }
         ],
@@ -67,6 +67,16 @@ app.post('/api/chat', async (req, res) => {
     console.error('Server Error:', error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
+});
+
+app.get('/api/stats', (req, res) => {
+  res.json({
+    progress: 15,
+    masteryLevel: 'N5',
+    wordsLearned: 12,
+    lessonsCompleted: 3,
+    streakDays: 5
+  });
 });
 
 app.listen(PORT, () => {

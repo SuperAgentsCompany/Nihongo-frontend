@@ -11,59 +11,66 @@
 }
 
 .header h1 {
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 .newBtn {
-  background-color: var(--electric-cyan);
-  color: var(--quantum-blue);
+  background-color: var(--text-primary);
+  color: var(--bg-card);
   border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 15px;
   display: flex;
   align-items: center;
   gap: 8px;
   cursor: pointer;
-  transition: transform 0.1s, box-shadow 0.2s;
+  transition: all 0.2s;
+  box-shadow: var(--shadow-card);
 }
 
 .newBtn:hover {
-  box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-button);
 }
 
 .newBtn:active {
-  transform: scale(0.98);
+  transform: translateY(0);
 }
 
 .statsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 24px;
-  margin-bottom: 40px;
+  margin-bottom: 48px;
 }
 
 .card {
-  background-color: var(--slate-800);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 24px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 32px;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-card);
 }
 
 .statLabel {
-  color: var(--text-muted);
+  color: var(--text-secondary);
   font-size: 14px;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .statValue {
-  font-size: 32px;
+  font-size: 40px;
   font-weight: 600;
+  color: var(--text-primary);
 }
 
 .statIcon {
@@ -71,8 +78,8 @@
   right: 24px;
   top: 50%;
   transform: translateY(-50%);
-  opacity: 0.1;
-  color: var(--electric-cyan);
+  opacity: 0.05;
+  color: var(--text-primary);
 }
 
 .agentGrid {
@@ -84,7 +91,7 @@
 .agentCard {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
 }
 
 .agentHeader {
@@ -95,73 +102,97 @@
 
 .agentName {
   font-weight: 600;
-  font-size: 18px;
+  font-size: 20px;
+  color: var(--text-primary);
 }
 
 .statusBadge {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
 }
 
 .dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: var(--text-muted);
+  background-color: #D1D5DB;
 }
 
 .activeDot {
-  background-color: var(--electric-cyan);
-  box-shadow: 0 0 8px var(--electric-cyan);
+  background-color: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
   animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
   0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.5); opacity: 0.5; }
+  50% { transform: scale(1.2); opacity: 0.7; }
   100% { transform: scale(1); opacity: 1; }
 }
 
 .agentTask {
   font-size: 14px;
-  color: var(--text-muted);
-  background: rgba(0, 0, 0, 0.2);
-  padding: 12px;
-  border-radius: 6px;
+  color: var(--text-secondary);
+  background: var(--bg-code);
+  padding: 16px;
+  border-radius: 12px;
   font-family: 'JetBrains Mono', monospace;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
-.outputCard {
+.summaryContainer {
   grid-column: span 2;
-  border-left: 4px solid var(--electric-cyan);
+  margin-top: 24px;
 }
 
-.timestamp {
-  font-size: 12px;
-  color: var(--text-muted);
+.summaryHeader {
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
-.outputContent {
-  font-size: 15px;
+.summaryTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.atomicGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.atomicCard {
+  border-top: 4px solid var(--accent);
+  padding: 24px;
+}
+
+.atomicCard h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.atomicCard p {
+  font-size: 14px;
   line-height: 1.6;
-  color: var(--text-main);
+  color: var(--text-primary);
+  margin: 0;
 }
 
-.outputContent ul {
-  margin-top: 12px;
-  padding-left: 20px;
-  list-style-type: disc;
-}
-
-.outputContent li {
-  margin-bottom: 8px;
+@media (max-width: 1280px) {
+  .atomicGrid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -169,7 +200,12 @@
     grid-template-columns: 1fr;
   }
   
-  .outputCard {
+  .summaryContainer {
     grid-column: span 1;
   }
+
+  .atomicGrid {
+    grid-template-columns: 1fr;
+  }
 }
+

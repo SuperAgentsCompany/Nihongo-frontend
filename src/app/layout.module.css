@@ -6,8 +6,8 @@
 
 .sidebar {
     width: 240px;
-    background-color: var(--quantum-blue);
-    border-right: 1px solid var(--border);
+    background-color: var(--bg-sidebar);
+    border-right: 1px solid var(--border-subtle);
     display: flex;
     flex-direction: column;
     padding: 24px;
@@ -16,13 +16,13 @@
 .logo {
     font-size: 24px;
     font-weight: 700;
-    color: var(--electric-cyan);
+    color: var(--accent);
     margin-bottom: 48px;
     letter-spacing: -0.05em;
 }
 
 .sidebar nav a {
-    color: var(--text-muted);
+    color: var(--text-secondary);
     font-weight: 500;
     display: flex;
     align-items: center;
@@ -33,8 +33,8 @@
 }
 
 .sidebar nav a:hover, .sidebar nav a.active {
-    color: var(--electric-cyan);
-    background: rgba(0, 229, 255, 0.1);
+    color: var(--accent);
+    background: var(--bg-active);
 }
 
 .main {

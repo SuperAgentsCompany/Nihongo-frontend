@@ -1,13 +1,15 @@
+@import './tokens.css';
+
 :root {
-  /* Nova Design System Color Palette */
-  --color-quantum-blue-deep: #0a2540;
-  --color-quantum-blue-light: #1a3b5d;
-  --color-electric-cyan: #06b6d4;
-  --color-stellar-white: #f8fafc;
-  --color-nebula-gray: #94a3b8;
-  --color-logic-green: #10b981;
-  --color-alert-amber: #f59e0b;
-  --color-signal-red: #ef4444;
+  /* Nova Design System Color Palette - Mapped to Semantic Tokens */
+  --color-quantum-blue-deep: var(--bg-surface);
+  --color-quantum-blue-light: var(--bg-sidebar);
+  --color-electric-cyan: var(--accent);
+  --color-stellar-white: var(--text-primary);
+  --color-nebula-gray: var(--text-secondary);
+  --color-logic-green: var(--success-color);
+  --color-alert-amber: var(--warning-color);
+  --color-signal-red: var(--error-color);
   --color-thought-purple: #8b5cf6;
 
   /* Typography */

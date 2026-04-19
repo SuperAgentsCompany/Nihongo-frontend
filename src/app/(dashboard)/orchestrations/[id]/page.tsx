@@ -41,16 +41,44 @@ export default function OrchestrationView() {
     const host = window.location.hostname === "localhost" ? "localhost:8000" : window.location.host;
     const wsUrl = `${protocol}//${host}/ws/orchestration/${id}`;
 
+    console.log("Attempting to connect to:", wsUrl);
     ws.current = new WebSocket(wsUrl);
+
+    let mockInterval: NodeJS.Timeout;
 
     ws.current.onopen = () => {
       console.log("Connected to WebSocket");
     };
 
-    ws.current.onmessage = (event) => {
-      const payload = JSON.parse(event.data);
-      console.log("Received event:", payload);
+    ws.current.onerror = () => {
+      console.log("WebSocket error, switching to mock mode");
+      startMockSimulation();
+    };
 
+    const startMockSimulation = () => {
+      const mockEvents = [
+        { event: "agent_thought", data: { agent: "Dispatcher", text: "Analyzing market sweep request..." } },
+        { event: "agent_action", data: { agent: "Dispatcher", action: "tool_use", tool: "Plan Generator" } },
+        { event: "handoff", data: { next_agent: "Researcher" } },
+        { event: "agent_thought", data: { agent: "Researcher", text: "Searching for competitor data..." } },
+        { event: "agent_action", data: { agent: "Researcher", action: "tool_use", tool: "Web Scraper" } },
+        { event: "agent_thought", data: { agent: "Researcher", text: "Extracting pricing models from 5 sources." } },
+        { event: "handoff", data: { next_agent: "Analyst" } },
+        { event: "agent_thought", data: { agent: "Analyst", text: "Comparing pricing across segments..." } },
+      ];
+
+      let i = 0;
+      mockInterval = setInterval(() => {
+        if (i < mockEvents.length) {
+          handleEvent(mockEvents[i]);
+          i++;
+        } else {
+          clearInterval(mockInterval);
+        }
+      }, 3000);
+    };
+
+    const handleEvent = (payload: any) => {
       const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
 
       if (payload.event === "agent_thought") {
@@ -99,12 +127,19 @@ export default function OrchestrationView() {
       }
     };
 
+    ws.current.onmessage = (event) => {
+      const payload = JSON.parse(event.data);
+      console.log("Received event:", payload);
+      handleEvent(payload);
+    };
+
     ws.current.onclose = () => {
       console.log("Disconnected from WebSocket");
     };
 
     return () => {
       ws.current?.close();
+      if (mockInterval) clearInterval(mockInterval);
     };
   }, [id]);
 
@@ -157,7 +192,7 @@ export default function OrchestrationView() {
           <div className={styles.panelHeader}>
             <span>Live Event Stream</span>
             <div className={styles.liveIndicator}>
-              <Circle size={8} fill="var(--electric-cyan)" />
+              <Circle size={8} fill="var(--accent)" />
               <span>Live</span>
             </div>
           </div>
