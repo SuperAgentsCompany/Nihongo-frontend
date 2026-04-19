@@ -37,3 +37,6 @@ gcloud run deploy --source .
 
 ## Tech Stack
 - **Frontend:** Next.js, React, TypeScript, Vanilla CSS.
+
+## Technical Documentation
+For detailed frontend architectural documentation and design specs, please refer to [FRONTEND_ARCHITECTURE.md](https://github.com/SuperAgentsCompany/documentations/blob/main/FRONTEND_ARCHITECTURE.md) in the central documentation repository.
